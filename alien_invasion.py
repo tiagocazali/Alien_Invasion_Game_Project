@@ -1,5 +1,4 @@
 import sys
-from turtle import right
 import pygame
 from settings import Settings
 from ship import Ship
@@ -12,7 +11,15 @@ class AlienInvasion:
         pygame.init()
         self.clock = pygame.time.Clock()
         self.settings = Settings()
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        
+        #Check if Full Screen is set to True in Settings
+        if self.settings.isFullScreen:
+            self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+            self.settings.screen_height = self.screen.get_rect().height
+            self.settings.screen_width = self.screen.get_rect().width
+        else:
+            self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+
         pygame.display.set_caption("Alien Invasion")
         self.ship = Ship(self)
 
@@ -30,22 +37,36 @@ class AlienInvasion:
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
+            
             if event.type == pygame.QUIT:
                 sys.exit()
             
             elif event.type == pygame.KEYDOWN: #Press the key
-                if event.key == pygame.K_RIGHT: 
-                    self.ship.moving_right = True #This variable are inside de Class Ship
+                self._check_keydown_events(event)
+            
+            elif event.type == pygame.KEYUP: #Release the key
+                self._check_keyup_events(event)
+
+
+    def _check_keydown_events(self, event):
+        """Responding to Keypresses"""
+        if event.key == pygame.K_RIGHT: 
+            self.ship.moving_right = True #This variable are inside de Class Ship
                             
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = True
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = True
+
+        elif event.key == pygame.K_q:
+            sys.exit()
+
+    def _check_keyup_events(self, event):    
+        """Responding to key releases"""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False #This variable are inside de Class Ship
             
-            elif event.type == pygame.KEYUP: #Release the right key
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = False #This variable are inside de Class Ship
-            
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = False 
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False 
+
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
