@@ -32,7 +32,7 @@ class AlienInvasion:
 
             self._check_events()  #Watch for keyboard and mouse events.
             self.ship.update()    #Use the update method in Ship to move the Ship
-            self.bullets.update() #call update() on a group, the group automatically calls update() for each sprite in the group. 
+            self._update_bullets() #call update() on a group, the group automatically calls update() for each sprite in the group. 
             self._update_screen() #update de Screen
             self.clock.tick(60)   #make the loop run exactly 60 times per second
 
@@ -77,8 +77,23 @@ class AlienInvasion:
 
     def _fire_bullets(self):
         """Create a new bullet and add it to the bullets group."""
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        
+        #check if the user have avalible bullets to use
+        if len(self.bullets) < self.settings.bullet_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
+
+
+    def _update_bullets(self):
+        """Update position of bullets and get rid of old bullets."""
+        
+        #update bullets positions
+        self.bullets.update()
+
+        # Get rid of bullets that have disappeared.
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
 
 
     def _update_screen(self):
@@ -87,11 +102,12 @@ class AlienInvasion:
         # Redraw the screen during each pass through the loop.
         self.screen.fill(self.settings.bg_color)
         
+        #go to all bullets in the screen and re-draw it in the correct position
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
 
         #Using the function in SHIP to criate the ship
-        self.ship.blitme()
+        self.ship.draw_ship()
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()

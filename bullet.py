@@ -1,5 +1,3 @@
-from cmath import rect
-from typing import Any
 import pygame
 from pygame.sprite import Sprite
 

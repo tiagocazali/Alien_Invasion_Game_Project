@@ -5,7 +5,7 @@ class Settings:
         """Initialize the game's settings."""
         
         #Screen Settings:
-        self.isFullScreen = True
+        self.isFullScreen = False
         self.screen_width = 1000
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
@@ -18,3 +18,4 @@ class Settings:
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (60,60,60)
+        self.bullet_allowed = 3
