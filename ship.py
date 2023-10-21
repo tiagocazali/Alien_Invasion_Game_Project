@@ -1,3 +1,5 @@
+from cmath import rect
+from re import X
 import pygame
 
 class Ship:
@@ -36,6 +38,13 @@ class Ship:
 
         # Update rect object from self.x.
         self.rect.x = self.x   
+
+
+    def center_ship(self):
+        """Center the ship on the screen."""
+
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
 
 
     def draw_ship(self):
