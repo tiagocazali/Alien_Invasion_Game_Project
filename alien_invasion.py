@@ -5,6 +5,7 @@ from settings import Settings
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
+from buttom import Buttom
 from game_stats import GameStats
 
 class AlienInvasion:
@@ -30,19 +31,21 @@ class AlienInvasion:
         self.bullets = pygame.sprite.Group() # create the group that holds the bullets
         self.aliens = pygame.sprite.Group()  # Create the group that holds the Aliens
         self._create_fleet()
-        self.game_active = True #This variable will control the loop for Game-Over
+        self.game_active = False #This variable will control the loop for Game-Over
 
+        self.play_buttom = Buttom(self, "Play") #Create the PLAY buttom
  
+
     def run_game(self):
         """Start the main loop for the game."""
         while True:
 
             self._check_events()   #Watch for keyboard and mouse events.
-            self.ship.update()     #Use the update method in Ship to move the Ship
             if self.game_active:    
+                self.ship.update()     #Use the update method in Ship to move the Ship
                 self._update_bullets() #call update() on a group, the group automatically calls update() for each sprite in the group. 
                 self._update_aliens()  #Call update() on aliens Group, to make aliens move
-                self._update_screen()  #update de Screen
+            self._update_screen()  #update de Screen
             self.clock.tick(60)    #make the loop run exactly 60 times per second
 
 
@@ -137,6 +140,10 @@ class AlienInvasion:
 
         #To make the alien appear, we need to call the group’s draw() method
         self.aliens.draw(self.screen)
+
+        # Draw the play button if the game is inactive.
+        if not self.game_active:
+            self.play_buttom.draw_buttum()
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
