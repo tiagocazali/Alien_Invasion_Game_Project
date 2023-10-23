@@ -11,4 +11,6 @@ class GameStats:
     def reset_stats(self):
         """Initialize statistics that can change during the game."""
 
+        #change the atual ship lives for the standard in Settings
         self.ship_lives = self.settings.ship_lives
+        
