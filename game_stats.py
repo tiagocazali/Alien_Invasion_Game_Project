@@ -13,4 +13,4 @@ class GameStats:
 
         #change the atual ship lives for the standard in Settings
         self.ship_lives = self.settings.ship_lives
-        
+        self.score = 0
