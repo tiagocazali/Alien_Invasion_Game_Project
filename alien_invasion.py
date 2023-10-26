@@ -100,9 +100,11 @@ class AlienInvasion:
         #Check if the click was in PLAY button and if the game is INACTIVE:
         if self.play_buttom.rect.collidepoint(mouse_position) and not self.game_active:
             
-            # Reset the game statistics (lives an points)
+            # Reset the game statistics (lives, points and level)
             self.statistics.reset_stats()
             self.scoreboard.prep_score()
+            self.scoreboard.prep_level()
+            self.scoreboard.prep_ship_lives_image()
 
             # Reset the game Speed/Dificult
             self.settings.initialize_dinamic_settings()
@@ -196,8 +198,9 @@ class AlienInvasion:
         alien_width = temp.rect.width
         alien_height = temp.rect.height
         
-        current_x, current_y = alien_width, alien_height
-        
+        current_x = alien_width
+        current_y = alien_height + 30 # +30 is for giving space on the top for the Score and Level
+
         #Fill the screen with aliens - Create a line, fill it and add another
         while current_y < (self.settings.screen_height - 4*alien_height):
             while current_x < (self.settings.screen_width - 2*alien_width):
@@ -237,12 +240,17 @@ class AlienInvasion:
         for aliens in collisions.values():
             self.statistics.score += self.settings.alien_points * len(aliens)
             self.scoreboard.prep_score() 
+            self.scoreboard.check_high_score()
 
         #checking if after the collisions, all aliens were destroyed and create more
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+
+            # Increase level Score
+            self.statistics.level += 1
+            self.scoreboard.prep_level()
 
 
     def _create_alien(self, x_position, y_position):
@@ -260,8 +268,10 @@ class AlienInvasion:
         
         #check if the ship has more lives to play again
         if self.statistics.ship_lives > 0:
-            # Decrement ships_lives
+            
+            # Decrement ships_left, and update scoreboard
             self.statistics.ship_lives -= 1
+            self.scoreboard.prep_ship_lives_image()
 
             # Get rid of any remaining bullets and aliens
             self.bullets.empty()

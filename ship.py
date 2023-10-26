@@ -1,13 +1,13 @@
-from cmath import rect
-from re import X
 import pygame
+from pygame.sprite import Sprite
 
-class Ship:
+class Ship(Sprite):
     """A class to manage the ship."""
 
     def __init__(self, ai_game) -> None:
         """Initialize the ship and set its starting position."""
         
+        super().__init__() #Initialize the Sprite
         self.screen = ai_game.screen
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()

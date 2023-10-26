@@ -39,7 +39,7 @@ class Settings:
 
         self.ship_speed = 2
         self.bullet_speed = 2.5
-        self.alien_speed = 1 #1
+        self.alien_speed = 30 #1
         self.fleet_direction = 1  #1 represents right; -1 represents left.
 
         # Scoring settings - Value of each alien destroed 
