@@ -2,13 +2,14 @@
 
 ![Alien Invasion](images/Mini.JPG)
 
-Welcome to Alien Invasion, a simple and fun game created in Python! This project is part of my personal portfolio and was developed to enhance my programming skills. Developed while studying the book "Python Crash Course, 3rd Edition" by Eric Matthes, which is copyrighted © 2023.
+Welcome to Alien Invasion, a simple and fun game created in Python! This project is part of my personal portfolio and was developed to enhance my programming skills. Developed while studying the book ["Python Crash Course, 3rd Edition"](https://ehmatthes.github.io/pcc_3e/) by Eric Matthes, which is copyrighted © 2023.
 
 ## Table of Contents
 
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [How to Play](#how-to-play)
+- [Game Settings](#game-settings)
 - [Screenshots](#screenshots)
 - [Contributions](#contributions)
 - [License](#license)
@@ -27,27 +28,56 @@ pip install pygame
 
 ## How to Play
 
-1. Clone the repository:
+**1. Clone the repository:**
+  ```bash
+  git clone https://github.com/tiagocazali/Game_Project.git
+  ```
 
-```bash
-git clone https://github.com/tiagocazali/Game_Project.git
-```
+**2. Navigate to the game directory:**
+  ```bash
+  cd Game_Project
+  ```
 
-2. Navigate to the game directory:
+**3. Start the game:**
+  ```bash
+  python alien_invasion.py
+  ```
 
-```bash
-cd Game_Project
-```
+**4. Use the arrow keys to move the spaceship and press the spacebar to shoot at the alien Invasion.**
 
-3. Start the game:
+**5. Press "q" to close de game.**
 
-```bash
-python alien_invasion.py
-```
 
-4. Use the arrow keys to move the spaceship and press the spacebar to shoot at the alien Invasion.
 
-5. Press q to close de game.
+## Game Settings
+
+You can customize the game by editing the settings in the "Settings.py" file. Here are some of the key settings that you can adjust:
+ATTENTION: Some settings, if wrong configured, can make the game crash!
+
+- **Screen Settings:**
+  - `isFullScreen`: Set to `True` for fullscreen mode.
+  - `screen_width` and `screen_height`: Adjust the screen size.
+
+- **Ship Settings:**
+  - `ship_lives`: Set the number of lives for your spaceship.
+
+- **Bullet Settings:**
+  - `bullet_width` and `bullet_height`: Adjust the bullet dimensions.
+  - `bullet_color`: Change the bullet color.
+  - `bullet_allowed`: Set the number of bullets allowed on the screen.
+
+- **Aliens Setting:**
+  - `fleet_drop_speed`: Adjust the speed at which the alien fleet moves down.
+  - `speedup_scale`: Determines how quickly the game speeds up.
+  - `score_scale`: Controls how quickly the alien point values increase.
+
+- **Initialize Dynamic Settings:**
+  - These settings control the dynamic aspects of the game, such as ship speed, bullet speed, alien speed, and more.
+
+- **Increase Speed:**
+  - The `increase_speed` method increases game speed settings to make the game more challenging.
+
+Feel free to modify these settings in the "Settings.py" file to tailor the game to your preferences.
 
 ## Screenshots
 
