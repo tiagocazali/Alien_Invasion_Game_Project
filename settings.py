@@ -15,10 +15,10 @@ class Settings:
         self.ship_lives = 3
 
         #Bullet Settingsg:
-        self.bullet_width = 30 #3
+        self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (60,60,60)
-        self.bullet_allowed = 5
+        self.bullet_allowed = 4
 
         #Aliens Setting
         self.fleet_drop_speed = 10 #10
@@ -39,7 +39,7 @@ class Settings:
 
         self.ship_speed = 2
         self.bullet_speed = 2.5
-        self.alien_speed = 30 #1
+        self.alien_speed = 1 #1
         self.fleet_direction = 1  #1 represents right; -1 represents left.
 
         # Scoring settings - Value of each alien destroed 
@@ -53,4 +53,3 @@ class Settings:
         self.bullet_speed *= self.speedup_scale
         self.alien_speed *= self.speedup_scale
         self.alien_points *= self.score_scale
-        #self.alien_points = int(self.alien_points * self.score_scale)
