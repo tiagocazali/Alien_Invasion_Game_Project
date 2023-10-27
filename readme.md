@@ -99,5 +99,3 @@ Contributions are welcome! If you would like to contribute to this project, foll
 This project is licensed under the [MIT License](LICENSE), which means you are free to use and modify it as you see fit. However, be sure to give proper credit when using this code in your own project.
 
 Enjoy playing Alien Invasion, and thank you for checking out my project!
-
-If you want to add more details, instructions, or specific information about the game, feel free to customize the README as needed. Remember to update it whenever you make significant changes to the project. Good luck with your portfolio!
