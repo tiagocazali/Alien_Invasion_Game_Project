@@ -1,8 +1,8 @@
 # Alien Invasion - Python Game
 
-![Alien Invasion](/images/Mini.JPG.png)
+![Alien Invasion](images/Mini.JPG.png)
 
-Welcome to Alien Invasion, a simple and fun game created in Python! This project is part of my personal portfolio and was developed to enhance my programming skills. Developed while studying the book "Python Crash Course, 3rd Edition" by Eric Matthes, which is copyrighted © 2023.
+Welcome to Alien Invasion, a simple and fun game created in Python! This project is part of my personal portfolio and was developed to enhance my programming skills. Developed while studying the book ["Python Crash Course, 3rd Edition"](https://ehmatthes.github.io/pcc_3e/) by Eric Matthes, which is copyrighted © 2023.
 
 ## Table of Contents
 
@@ -51,8 +51,8 @@ python alien_invasion.py
 
 ## Screenshots
 
-![Screenshot 1](/images/print1.JPG.png)
-![Screenshot 2](/images/print2.JPG.png)
+![Screenshot 1](images/print1.JPG.png)
+![Screenshot 2](images/print2.JPG.png)
 
 ## Contributions
 
