@@ -1,6 +1,6 @@
 # Alien Invasion - Python Game
 
-![Alien Invasion](/images/Mini.JPG.png)
+![Alien Invasion](images/Mini.JPG)
 
 Welcome to Alien Invasion, a simple and fun game created in Python! This project is part of my personal portfolio and was developed to enhance my programming skills. Developed while studying the book "Python Crash Course, 3rd Edition" by Eric Matthes, which is copyrighted © 2023.
 
@@ -51,8 +51,8 @@ python alien_invasion.py
 
 ## Screenshots
 
-![Screenshot 1](/images/print1.JPG.png)
-![Screenshot 2](/images/print2.JPG.png)
+![Screenshot 1](images/print1.JPG)
+![Screenshot 2](images/print2.JPG)
 
 ## Contributions
 
@@ -71,6 +71,3 @@ This project is licensed under the [MIT License](LICENSE), which means you are f
 Enjoy playing Alien Invasion, and thank you for checking out my project!
 
 If you want to add more details, instructions, or specific information about the game, feel free to customize the README as needed. Remember to update it whenever you make significant changes to the project. Good luck with your portfolio!
-```
-
-Copie e cole o conteúdo acima em um arquivo chamado "README.md" no seu repositório do GitHub para criar a versão em inglês do README no formato Markdown. Certifique-se de substituir "link_to_game_screenshot" pelo URL da imagem do seu jogo e "your-username" pelo seu nome de usuário no GitHub.
