@@ -72,7 +72,7 @@ class AlienInvasion:
 
     def _check_keydown_events(self, event):
         """Responding to Keypresses"""
-        if event.key == pygame.K_q:
+        if (event.key == pygame.K_q) or (event.key == pygame.K_ESCAPE):
             sys.exit()
         
         elif event.key == pygame.K_RIGHT: 
